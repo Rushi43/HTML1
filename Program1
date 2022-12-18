@@ -1,0 +1,15 @@
+public class Move_To_Element {
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.get("https://www.flipkart.com/");
+		driver.findElement(By.cssSelector("button[class='_2KpZ6l _2doB4z']")).click();
+		WebElement element = driver.findElement(By.xpath("(//div[@class='xtXmba'])[5]"));
+		Actions action = new Actions (driver);
+		action.moveToElement(element);
+		action.perform();
+	}
+
+}
